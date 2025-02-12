@@ -4,6 +4,9 @@
 :root{
     font-family: "Oranienbaum", serif;
 }
+.material-icons{
+   
+}
 body{
     background-color: rgb(255, 255, 169);
 }
@@ -14,19 +17,27 @@ body{
     box-shadow: 0px 6px 12px 2px rgba(78, 78, 78, 0.6);
     background-color: rgb(194, 252, 252);
     display: flex;
+    overflow-x: scroll;
 }
 .card{
+    position: relative;
+    min-width: 200px;
     width: 300px;
+    height: 100%;
     margin: 0 12px;
+    background-color:rgba(194, 252, 252, 0.5) ;
 }
+
 .title{
     margin: 12px 0;
     font-size: 20px;
     font-weight: bold;
+    max-height: 50px;
+    overflow-x:hidden;
 }
 .mask-review{
     overflow: hidden;
-    background-color: aqua;
+    
 }
 .review{
     font-weight: lighter;
@@ -48,10 +59,38 @@ hr{
 .stars{
     color: rgb(0, 98, 163) ;
     font-size: 24px;
-    font-family: "Abril Fatface", serif;;
+    font-family: "Abril Fatface", serif;
+}
+.name-box{
+    position: absolute;
+    bottom: 0px;
+
+}
+span{
+    display: block;
+    font-family: 'Material Icons'; 
+    text-align: center;
 }
 .name{
     font-size: 20px;
-    margin: 20px 0px;
     font-weight: bold;
+    font-family: "Abril Fatface", serif;
+    color:rgb(0, 98, 163) ;
+}
+#bubble-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: 20px;
+}
+#bubble{
+    font-size: 30px;
+    background-color: rgba(236, 165, 245, 0.5);
+    border-radius: 0px 12px 12px 8px;
+    width: 40px;
+    height: 40px;
+}
+#bubble-text{
+    text-align: center;
+    margin: 5px 5%;
 }
