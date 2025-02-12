@@ -1,0 +1,57 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Liter&family=Oranienbaum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+:root{
+    font-family: "Oranienbaum", serif;
+}
+body{
+    background-color: rgb(255, 255, 169);
+}
+.container{
+    padding: 40px;
+    height: 300px;
+    border-radius: 24px;
+    box-shadow: 0px 6px 12px 2px rgba(78, 78, 78, 0.6);
+    background-color: rgb(194, 252, 252);
+    display: flex;
+}
+.card{
+    width: 300px;
+    margin: 0 12px;
+}
+.title{
+    margin: 12px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.mask-review{
+    overflow: hidden;
+    background-color: aqua;
+}
+.review{
+    font-weight: lighter;
+    text-align: justify;
+    height: 150px;
+}
+hr{
+    border: solid 0.5px;
+}
+
+.box-star{
+    background-color: rgba(236, 165, 245, 0.5);
+    border-radius: 0px 12px 12px 8px;
+    width: 30px;
+    right: 10px;
+    text-align: center;
+    padding: 4px 5px;
+}
+.stars{
+    color: rgb(0, 98, 163) ;
+    font-size: 24px;
+    font-family: "Abril Fatface", serif;;
+}
+.name{
+    font-size: 20px;
+    margin: 20px 0px;
+    font-weight: bold;
+}

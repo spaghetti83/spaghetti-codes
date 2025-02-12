@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="places-list"></ul>
+    <main>
+    
+    <div id="setting-container">
+
+        <div id="setting">
+
+            <input type="text" id="location">
+            <div>
+                <label for="forecast-days" hidden>giorni</label>
+                <select name="forecast-days" id="forecast-days" hidden>
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="5" selected>5</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+
+            <button id="find-location" class="btn"><i class="material-icons">search</i></button>
+
+        </div>
+    </div>
+
+    <!-- OUTPUT -->
+    <div id="main">
+        <div id="forecast-container">
+
+
+        </div>
+    </div>
+
+</main>
+    
+    <script src="/script.js"></script>
+
+</body>
+
+</html>

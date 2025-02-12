@@ -1,0 +1,120 @@
+:root{
+    --container-size-w: 300px;
+    --container-size-h: 150px;
+   
+}
+
+#tgl-box{
+    position: relative;
+    width: 250px;
+    height: 145px;
+    border-radius: 100px 100px;
+    background-color: #74A7FF;
+    box-shadow: inset 0px 20px 20px 15px rgba(1, 57, 153,0.6);
+    overflow: hidden;
+    
+}
+#circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    background-color: #FFDF00;
+    box-shadow: inset 20px 0px 15px 15px #FEC108;
+    
+}
+#star-container > .star:nth-child(1){
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    rotate: 45deg;
+
+}
+#star-container > .star:nth-child(2){
+    position: absolute;
+    top: 65px;
+    left: 25px;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    rotate: 45deg;
+}
+#star-container > .star:nth-child(3){
+    position: absolute;
+    top: 60px;
+    left: 205px;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    rotate: 45deg;
+}
+#star-container > .star:nth-child(4){
+    position: absolute;
+    top: 10px;
+    left: 195px;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    rotate: 45deg;
+}
+#star-container > .star:nth-child(5){
+    position: absolute;
+    top: 15px;
+    left: 60px;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    rotate: 45deg;
+}
+#star-container > .star:nth-child(6){
+    position: absolute;
+    top: 65px;
+    left: 25px;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    rotate: 45deg;
+}
+
+
+.cloud{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    transform: translate(-50%,-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: #ffffff;
+    box-shadow: inset 8px -10px 15px 1px rgba(180, 180, 180, 0.6);
+    transition: 0.4s ease-in-out;
+}
+#cloud-container > .cloud:nth-child(2){
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    
+}
+#cloud-container > .cloud:nth-child(1){
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    width: 50px;
+    height: 50px;
+}
+#cloud-container > .cloud:nth-child(3){
+    position: absolute;
+    top: 45%;
+    left: 38%;
+    width: 60px;
+    height: 60px;
+}
+
+
+

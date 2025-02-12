@@ -1,0 +1,53 @@
+require('dotenv').config({ path: 'config.env'})
+const express = require('express')
+const cors = require('cors')
+const app  = express()
+const port  = 5000
+
+app.use(cors())
+app.use(express.json())
+const apikey = process.env.API_KEY
+const geoApiKey = process.env.GEO_API_KEY
+console.log('APIKEY',apikey)
+console.log('APIKEY',geoApiKey)
+
+app.post('/location', (req,res)=>{
+    const location = req.body.location
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${geoApiKey}`;
+    const options = {
+        method: 'GET',
+        headers: { 'Content-Type' : 'application/json'}
+    }
+    fetch(url, options)
+    .then(res => res.json())
+    .then(data => {
+        if(data.status === 'OK'){
+            res.send(data)
+        }else{
+            res.send({error: 'no location found'})
+        }
+    })
+    .catch(err => res.send(err)); 
+})
+
+
+app.post('/forecast', (req,res)=>{
+    const lat = req.body.lat
+    const lng = req.body.lng
+    console.log('body got',req.body )
+    const url = `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lng}&apikey=${apikey}`;
+    const options = {
+        method: 'GET',
+        headers: { accept: 'application/json', 'accept-encoding': 'deflate, gzip, br' }
+    };
+
+    fetch(url, options)
+        .then(res => res.json())
+        .then(json => res.send(json))
+        .catch(err => console.error(err));
+})
+
+
+app.listen(port, ()=>{
+    console.log('server in ascolto')
+} )
