@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Just+Another+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Just+Another+Hand&display=swap');
+:root{
+    --fst-color: #CFD3FF;
+    --snd-color: #F19EDC;
+    --trd-color: #F5FD9C;
+    --font-fst: "Inter", serif;
+    --font-snd: "Afacad", serif;
+    --font-handwrite: "Just Another Hand", serif;
+    --left-margin: 20px;
+    --top-margin: 20px;
+}
+body{
+    margin: 0px;
+    width: 100vw;
+    height: fit-content;
+    font-family: var(--font-fst);
+}
+#menu{
+    height: 60px;
+    background-color: var(--fst-color);
+}
+#fst-section{
+    background-color: var(--fst-color);
+    height: 500px;
+}
+#site-title{
+    margin: 0px var(--left-margin);
+    font-size: 40px;
+    font-family: var(--font-snd);
+    width: 100vw;
+    display: flex;
+    gap: 15px;
+}
+#spaghetti{
+    margin-top: -20px;
+    font-family: var(--font-handwrite);
+    font-size:  86px;
+    rotate: -10deg;
+}
+#codes{
+    font-weight: bold;
+}
+#declaimer{
+    margin: var(--top-margin) var(--left-margin);
+    font-size: 32px;
+    font-weight: bold;
+}
