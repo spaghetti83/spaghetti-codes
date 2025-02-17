@@ -1,27 +1,106 @@
+
+const dialog = document.getElementById('dialog-box')
 const addReview = document.getElementById('bubble-container')
+const reviewContainer = document.getElementById('container')
+const container = document.getElementById("container")
+const audio = new Audio('./sounds/swing-whoosh-in-room-5-234257.mp3')
+//DIALOG BOX
+dialog.style.display = 'none'
+const nameReview  = document.getElementById('name')
+const textReview = document.getElementById('review')
+const closeBtn = document.getElementById('close-view-btn')
+const sendBtn = document.getElementById('send-review-btn')
+const starContainer = document.getElementById('stars-container')
+const textCountdown = document.getElementById('text-countdown')
+const elementsStarContainer = starContainer.querySelectorAll('.star-btn')
+////////////
+let rankValueSelected = 5
 
-
-addReview.addEventListener('click',()=>{
+elementsStarContainer.forEach((element,ind) =>{
+    element.addEventListener('click',()=>{ 
+        elementsStarContainer.forEach((e) =>{
+            e.style.color = 'rgb(205, 118, 217)'
+        })
+        element.style.color = 'white'
+        rankValueSelected = ind+1
+        console.log(rankValueSelected)  
+    })
     
-    const strElement = `
-         <div class="card">
+})
+
+let maxTextLength = 400
+textReview.maxLength = maxTextLength
+textCountdown.innerText = '0'
+
+textReview.addEventListener('keydown', () => {
+
+    maxTextLength - textReview.value.length
+    console.log(textReview.value.length)
+    textCountdown.innerText = (maxTextLength - (textReview.value.length))
+    if (textReview.value.length >= 400) {
+        textReview.value = textReview.value.slice(0, 399)
+        textCountdown.style.color = 'red'
+        textCountdown.style.fontWeight = 'bolder'
+
+    }
+    if (textReview.value.length === 0) {
+        textCountdown.innerText = '0'
+    }
+})
+
+
+closeBtn.addEventListener('click', () => {
+    rankValueSelected = ''
+    dialog.style.display = 'none'
+    textReview.value = '';
+    nameReview.value = ''
+    maxTextLength = 400
+    textCountdown.innerText = maxTextLength
+})
+addReview.addEventListener('click', () => dialog.style.display = 'flex')
+
+sendBtn.addEventListener('click', () => {
+    if (textReview.value.length >= 400) {
+        textReview.value = textReview.value.slice(0, 400)
+        textCountdown.innerText = maxTextLength - textReview.value.length
+        textCountdown.style.color = 'red'
+        textCountdown.style.fontWeight = 'bolder'
+    } else {
+
+        const newReview = document.createElement('div')
+        newReview.classList = 'card'
+        newReview.innerHTML = `
+        
             <div class="stars-container">
                 <div class="box-star">
-                    <span class="stars">5</span>
+                    <span class="stars">${rankValueSelected}</span>
                 </div>
             </div>
-            <div class="title">Fantastico!!</div>
             <div class="mask-review">
-                <div class="review">esperienza enogastronomica eccezionale. Cocktail, sinfonie di sapori e opere d'arte
-                    create con maestria. Aperitivo, esperienza culinaria superiore al buffet, con prelibatezze gourmet
-                    freschissime e sorprendenti, dai classici rivisitati a creazioni originali. Ogni assaggio,
-                    un'esplosione di sapore e cura al dettaglio. Offerta di altissimo livello per un'esperienza
-                    sensoriale indimenticabile.</div>
+                <div class="review">${textReview.value}</div>
             </div>
             <div class="name-box">
-                <div class="name">Marco</div>
+                <div class="name">${nameReview.value}</div>
             </div>
-        </div>
+        
     
     `
+        const firstReview = reviewContainer.firstChild
+        reviewContainer.insertBefore(newReview, firstReview)
+        rankValueSelected = 5
+        textReview.value = '';
+        nameReview.value = ''
+        maxTextLength = 400
+        newReview.style.opacity = 0
+        newReview.style.transform = 'translate(0,-100%)'
+        dialog.style.display = 'none'
+        setTimeout(() => {
+            audio.play()
+            newReview.scrollIntoView({ behavior: "smooth", block: 'start' })
+            newReview.style.opacity = 1
+            newReview.style.transform = 'translate(0,0)'
+        }, 100)
+
+
+    }
 })

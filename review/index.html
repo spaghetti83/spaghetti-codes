@@ -10,16 +10,15 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="container">
         <div class="card">
             <div class="stars-container">
                 <div class="box-star">
                     <span class="stars">5</span>
                 </div>
             </div>
-            <div class="title">Fantastico!!</div>
             <div class="mask-review">
-                <div class="review">esperienza enogastronomica eccezionale. Cocktail, sinfonie di sapori e opere d'arte
+                <div class="review">Esperienza enogastronomica eccezionale. Cocktail, sinfonie di sapori e opere d'arte
                     create con maestria. Aperitivo, esperienza culinaria superiore al buffet, con prelibatezze gourmet
                     freschissime e sorprendenti, dai classici rivisitati a creazioni originali. Ogni assaggio,
                     un'esplosione di sapore e cura al dettaglio. Offerta di altissimo livello per un'esperienza
@@ -37,7 +36,6 @@
                     <span class="stars">5</span>
                 </div>
             </div>
-            <div class="title">Un'oasi di relax e stile</div>
             <div class="mask-review">
                 <div class="review">Sono rimasto piacevolmente colpito da questo lounge bar. L'atmosfera è raffinata e
                     rilassante, con un arredamento curato nei dettagli e una musica di sottofondo piacevole. I cocktail
@@ -59,7 +57,6 @@
                     <span class="stars">5</span>
                 </div>
             </div>
-            <div class="title">Cocktail creativi e atmosfera vivace</div>
             <div class="mask-review">
                 <div class="review">Questo lounge bar si distingue per la sua creatività nella preparazione dei
                     cocktail. Il menu offre una vasta scelta di drink originali, con abbinamenti di sapori sorprendenti
@@ -83,9 +80,12 @@
 <!-- ----------------- -->
     <div id="dialog-box">
         <input type="text" id="name" placeholder="nome">
-        <textarea id="review" placeholder="scrivi la tua opinione"></textarea>
+        <div>
+            <textarea id="review" placeholder="scrivi la tua opinione"></textarea>
+            <div id="text-countdown"></div>
+        </div>
         <div id="stars-review">
-            <div id="stars-container">
+            <div id="stars-container" class="stars-container">
                 <span class="star-btn">star_rate</span>
                 <span class="star-btn">star_rate</span>
                 <span class="star-btn">star_rate</span>
@@ -93,7 +93,8 @@
                 <span class="star-btn">star_rate</span>
             </div>
         </div>
-        <input type="button" value="invia" id="send-review">
+        <input type="button" value="invia" id="send-review-btn">
+        <input type="button" value="chiudi" id="close-view-btn">
     </div>
 
     <script src="script.js"></script>
