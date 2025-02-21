@@ -146,10 +146,11 @@ textarea{
 }
 .star-btn{
     color: rgb(205, 118, 217);
+    transition: 0.1s linear;
+    margin: 1px;
 }
 .star-btn:hover{
     cursor: pointer;
-    color: aliceblue;
 }
 #send-review-btn{
     background-color: rgb(194, 252, 252);

@@ -5,6 +5,7 @@ const reviewContainer = document.getElementById('container')
 const container = document.getElementById("container")
 const audio = new Audio('./sounds/swing-whoosh-in-room-5-234257.mp3')
 const icoTheme = document.getElementById('ico-theme-mode')
+const secondStyle = document.getElementById('style2')
 //DIALOG BOX
 dialog.style.display = 'none'
 const nameReview  = document.getElementById('name')
@@ -34,6 +35,7 @@ icoTheme.addEventListener('click', ()=>{
     themeManualMode = true
     if(icoTheme.innerText === 'light_mode' ){
         icoTheme.innerText = 'dark_mode'
+        
         themeStatus = false
     }else{
         icoTheme.innerText = 'light_mode'
@@ -43,15 +45,30 @@ icoTheme.addEventListener('click', ()=>{
 
 
 elementsStarContainer.forEach((element,ind) =>{
-    element.addEventListener('click',()=>{ 
+    let scaleFactor = "scale(1)"
+    let isSelected = false
+    element.addEventListener('click',(e)=>{ 
         elementsStarContainer.forEach((e) =>{
-            e.style.color = 'rgb(205, 118, 217)'
+            e.style.transform = scaleFactor
         })
-        element.style.color = 'white'
+        element.style.transform = 'scale(1.3)'
+        isSelected = true
+        
         rankValueSelected = ind+1
-        console.log(rankValueSelected)  
+        console.log(rankValueSelected, isSelected)  
     })
+    element.addEventListener('mouseover',(e)=>{ 
+        element.style.transform = 'scale(1.3)'
+       
+        console.log( isSelected) 
+    })
+    element.addEventListener('mouseout',(e)=>{
+        if(!isSelected){
+            element.style.transform = scaleFactor
+        }
+        
     
+    })
 })
 
 let maxTextLength = 400
@@ -80,6 +97,9 @@ closeBtn.addEventListener('click', () => {
     nameReview.value = ''
     maxTextLength = 400
     textCountdown.innerText = maxTextLength
+    elementsStarContainer.forEach((element) =>{
+        element.style.transform = 'scale(1)'
+    })
 })
 addReview.addEventListener('click', () => dialog.style.display = 'flex')
 
