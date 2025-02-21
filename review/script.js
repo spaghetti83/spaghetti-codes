@@ -33,18 +33,16 @@ textReview.maxLength = maxTextLength
 textCountdown.innerText = '0'
 
 textReview.addEventListener('keydown', () => {
-
+    
     maxTextLength - textReview.value.length
     console.log(textReview.value.length)
     textCountdown.innerText = (maxTextLength - (textReview.value.length))
     if (textReview.value.length >= 400) {
+        textCountdown.style.display = 'block'
         textReview.value = textReview.value.slice(0, 399)
-        textCountdown.style.color = 'red'
+        textCountdown.style.color = 'rgb(236, 165, 245)'
         textCountdown.style.fontWeight = 'bolder'
-
-    }
-    if (textReview.value.length === 0) {
-        textCountdown.innerText = '0'
+        console.log('limite parole raggiunto')
     }
 })
 
