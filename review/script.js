@@ -4,6 +4,7 @@ const addReview = document.getElementById('bubble-container')
 const reviewContainer = document.getElementById('container')
 const container = document.getElementById("container")
 const audio = new Audio('./sounds/swing-whoosh-in-room-5-234257.mp3')
+const icoTheme = document.getElementById('ico-theme-mode')
 //DIALOG BOX
 dialog.style.display = 'none'
 const nameReview  = document.getElementById('name')
@@ -15,6 +16,31 @@ const textCountdown = document.getElementById('text-countdown')
 const elementsStarContainer = starContainer.querySelectorAll('.star-btn')
 ////////////
 let rankValueSelected = 5
+
+let themeManualMode = false
+let themeStatus = true
+const today = new Date()
+const hour = today.getHours()
+if (themeManualMode === false ){
+if(hour > 8 && hour < 18){
+    icoTheme.innerText = 'light_mode'
+    themeStatus = true
+}else{
+    icoTheme.innerText = 'dark_mode'
+    themeStatus = false
+}
+}
+icoTheme.addEventListener('click', ()=>{
+    themeManualMode = true
+    if(icoTheme.innerText === 'light_mode' ){
+        icoTheme.innerText = 'dark_mode'
+        themeStatus = false
+    }else{
+        icoTheme.innerText = 'light_mode'
+        themeStatus = true
+    }
+})
+
 
 elementsStarContainer.forEach((element,ind) =>{
     element.addEventListener('click',()=>{ 
