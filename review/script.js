@@ -5,7 +5,7 @@ const reviewContainer = document.getElementById('container')
 const container = document.getElementById("container")
 const audio = new Audio('./sounds/swing-whoosh-in-room-5-234257.mp3')
 const icoTheme = document.getElementById('ico-theme-mode')
-const secondStyle = document.getElementById('style2')
+
 //DIALOG BOX
 dialog.style.display = 'none'
 const nameReview  = document.getElementById('name')
@@ -16,8 +16,50 @@ const starContainer = document.getElementById('stars-container')
 const textCountdown = document.getElementById('text-countdown')
 const elementsStarContainer = starContainer.querySelectorAll('.star-btn')
 ////////////
-let rankValueSelected = 5
 
+
+
+const styleChanger = (toggle)=> {
+
+    const styleDefault1 = document.getElementById('style1')
+    const styleDefault2 = document.getElementById('style2')
+    const style1 = document.createElement('link')
+    const style2 = document.createElement('link')
+
+    style1.id = 'style1'
+    style2.id = 'style2'
+    style1.rel = 'stylesheet'
+    style2.rel = 'stylesheet'
+    style1.href = 'style.css'
+    style2.href = 'style2.css'
+    
+    if(!toggle){
+        document.head.appendChild(style2)
+        const styleTemp1 = document.getElementById('style1')  
+        if(styleTemp1){
+            styleTemp1.remove()
+        }
+        
+    }else{
+        document.head.appendChild(style1)
+        const styleTemp2 = document.getElementById('style2')  
+        if(styleTemp2){
+            styleTemp2.remove()
+        }
+        
+    }
+    ///REMOVE STYLE DEFAULT
+    if(styleDefault1){
+        styleDefault1.remove()
+    }
+    if(styleDefault2){
+        styleDefault2.remove()
+    }
+    console.log(toggle)
+}
+styleChanger(false)
+
+let rankValueSelected = 5
 let themeManualMode = false
 let themeStatus = true
 const today = new Date()
@@ -26,6 +68,7 @@ if (themeManualMode === false ){
 if(hour > 8 && hour < 18){
     icoTheme.innerText = 'light_mode'
     themeStatus = true
+    
 }else{
     icoTheme.innerText = 'dark_mode'
     themeStatus = false
@@ -35,11 +78,12 @@ icoTheme.addEventListener('click', ()=>{
     themeManualMode = true
     if(icoTheme.innerText === 'light_mode' ){
         icoTheme.innerText = 'dark_mode'
-        
         themeStatus = false
+        styleChanger(themeStatus)
     }else{
         icoTheme.innerText = 'light_mode'
         themeStatus = true
+        styleChanger(themeStatus)
     }
 })
 
