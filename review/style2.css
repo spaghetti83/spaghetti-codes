@@ -50,8 +50,7 @@ body{
     max-height: 250px;
     overflow-y: auto;
     margin: 65px 30px;
-    font-size: large;
-    font-size: 14px;
+    font-size: 18px;
     transition: 1s ease-out;
 }
 hr{
@@ -99,6 +98,7 @@ span{
     flex-direction: row;
     justify-content: end;
     margin-top: 20px;
+    margin-right: 10px;
 }
 #bubble{
     font-size: 30px;

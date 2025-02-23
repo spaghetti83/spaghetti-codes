@@ -57,31 +57,43 @@ const styleChanger = (toggle)=> {
     }
     console.log(toggle)
 }
-styleChanger(false)
+styleChanger(true)
+
+
 
 let rankValueSelected = 5
 let themeManualMode = false
 let themeStatus = true
-const today = new Date()
+icoTheme.style.color = 'rgb(0, 98, 163)'
+///ONLY FOR DARK-LIGHT THEME, BASED ON THE PRESENT TIME
+
+/* const today = new Date()
 const hour = today.getHours()
 if (themeManualMode === false ){
 if(hour > 8 && hour < 18){
-    icoTheme.innerText = 'light_mode'
+    icoTheme.innerText = 'change_circle'
+    icoTheme.style.color = 'rgb(205, 118, 217)'
     themeStatus = true
     
 }else{
-    icoTheme.innerText = 'dark_mode'
+    icoTheme.innerText = 'change_circle'
+    icoTheme.style.color =  'rgb(0, 98, 163)'
     themeStatus = false
 }
-}
+} */
+
+
+
 icoTheme.addEventListener('click', ()=>{
     themeManualMode = true
-    if(icoTheme.innerText === 'light_mode' ){
-        icoTheme.innerText = 'dark_mode'
+    if(themeStatus){
+        icoTheme.innerText = 'change_circle'
+         icoTheme.style.color = 'rgb(205, 118, 217)'
         themeStatus = false
         styleChanger(themeStatus)
     }else{
-        icoTheme.innerText = 'light_mode'
+        icoTheme.innerText = 'change_circle'
+         icoTheme.style.color =  'rgb(0, 98, 163)'
         themeStatus = true
         styleChanger(themeStatus)
     }
@@ -115,20 +127,34 @@ elementsStarContainer.forEach((element,ind) =>{
     })
 })
 
-let maxTextLength = 400
+
+nameReview.addEventListener('keydown',()=>{ 
+    if(nameReview.value.length >= 1 ){
+        nameReview.style.border = 'none'
+    }
+})
+
+
+let maxTextLength = 200
 textReview.maxLength = maxTextLength
 textCountdown.innerText = '0'
 
 textReview.addEventListener('keydown', () => {
     
+    if(textReview.value.length >= 1){
+        textReview.style.border = 'none'
+    }
+
+    
     maxTextLength - textReview.value.length
     console.log(textReview.value.length)
     textCountdown.innerText = (maxTextLength - (textReview.value.length))
-    if (textReview.value.length >= 400) {
-        textCountdown.style.display = 'block'
-        textReview.value = textReview.value.slice(0, 399)
-        textCountdown.style.color = 'rgb(236, 165, 245)'
-        textCountdown.style.fontWeight = 'bolder'
+    if (textReview.value.length >= 200) {
+        
+        textReview.value = textReview.value.slice(0, 198)
+       //textCountdown.style.display = 'block'
+       // textCountdown.style.color = 'red'
+        alert('limite caratteri raggiunto')
         console.log('limite parole raggiunto')
     }
 })
@@ -139,7 +165,7 @@ closeBtn.addEventListener('click', () => {
     dialog.style.display = 'none'
     textReview.value = '';
     nameReview.value = ''
-    maxTextLength = 400
+    maxTextLength = 200
     textCountdown.innerText = maxTextLength
     elementsStarContainer.forEach((element) =>{
         element.style.transform = 'scale(1)'
@@ -148,8 +174,21 @@ closeBtn.addEventListener('click', () => {
 addReview.addEventListener('click', () => dialog.style.display = 'flex')
 
 sendBtn.addEventListener('click', () => {
-    if (textReview.value.length >= 400) {
-        textReview.value = textReview.value.slice(0, 400)
+    if(!nameReview.value){
+        nameReview.style.border = 'red solid 0.5px'
+        return
+    }
+    if(!textReview.value){
+        textReview.style.border = 'red solid 0.5px'
+        return
+    }
+
+    if(!textReview.value){
+
+    }
+
+    if (textReview.value.length >= 200) {
+        textReview.value = textReview.value.slice(0, 200)
         textCountdown.innerText = maxTextLength - textReview.value.length
         textCountdown.style.color = 'red'
         textCountdown.style.fontWeight = 'bolder'
@@ -178,7 +217,7 @@ sendBtn.addEventListener('click', () => {
         rankValueSelected = 5
         textReview.value = '';
         nameReview.value = ''
-        maxTextLength = 400
+        maxTextLength = 200
         newReview.style.opacity = 0
         newReview.style.transform = 'translate(0,-100%)'
         dialog.style.display = 'none'
