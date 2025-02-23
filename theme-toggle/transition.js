@@ -1,12 +1,12 @@
 
-const toggle = document.getElementById('toggle')
+const toggleMain = document.getElementById('main-toggle')
 const circle = document.getElementById('circle')
 const sky = document.getElementById('tgl-box')
 const stars = document.getElementsByClassName('star')
 const cloud = document.getElementsByClassName('cloud')
-circle.style.transition = '0.4s ease-in-out'
-sky.style.transition = '0.4s ease-in-out'
-toggle.addEventListener('touchstart' && 'click', () => {
+/* circle.style.transition = '0.4s ease-in-out'
+sky.style.transition = '0.4s ease-in-out' */
+toggleMain.addEventListener('touchstart' && 'click', () => {
     
     if (circle.classList.contains('sun')) {
         circle.classList.remove('sun')
