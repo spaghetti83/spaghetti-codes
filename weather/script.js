@@ -16,8 +16,7 @@ const statusIcon = document.getElementById('status-icon')
 let geometry = ''
 let locationHint = []
 let lat,lng;
-findLocation.addEventListener('click', ()=>{
-    
+findLocation.addEventListener('click', (event)=>{
     const searchLocation = locations.value
     
     if(searchLocation.length > 2){
@@ -50,6 +49,7 @@ findLocation.addEventListener('click', ()=>{
         })
         .catch(err => {console.log(err)})
     }
+
 })
 
 
