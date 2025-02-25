@@ -2,7 +2,7 @@ require('dotenv').config({ path: 'config.env'})
 const express = require('express')
 const cors = require('cors')
 const app  = express()
-const port  = 5000
+const port  = 3100
 
 app.use(cors())
 app.use(express.json())

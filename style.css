@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Just+Another+Hand&display=swap');
 :root{
     --fst-color: #CFD3FF;
+    --fst-color-mild: #dde0f6;
     --snd-color: #F19EDC;
     --trd-color: #F5FD9C;
     --font-fst: "Inter", serif;
@@ -79,6 +80,12 @@ align-items: start;
 
 #img-spaghetti{
    width: 250px;
+}
+
+.section-container{
+    background-color: var(--fst-color-mild);
+    width: 100vw;
+    height: 500px;
 }
 
 @media screen and (max-width: 1200px){

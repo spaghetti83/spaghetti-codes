@@ -21,7 +21,7 @@ findLocation.addEventListener('click', ()=>{
     const searchLocation = locations.value
     
     if(searchLocation.length > 2){
-        fetch('http://127.0.0.1:5000/location',{
+        fetch('http://127.0.0.1:3100/location',{
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify({location : searchLocation})
@@ -322,7 +322,7 @@ console.log(today)
 const pathIcons = '/icons/'
 
     const getWeather = () =>{
-    fetch('http://127.0.0.1:5000/forecast',{
+    fetch('http://127.0.0.1:3100/forecast',{
         method: 'POST',
         headers: { 'Content-Type' : 'application/json'},
         body: JSON.stringify({ 'lat': lat, 'lng': lng})
@@ -346,11 +346,16 @@ const pathIcons = '/icons/'
             let weatherCode = data.timelines.daily[i].values.weatherCodeMax
             let weatherCondition = weatherCodes[weatherCode]
             let weatherIcon = weatherIcons[weatherCode + dayOrNight]
+            if(weatherIcon === undefined){
+                weatherIcon = weatherIcons[weatherCode + '0']
+            }
+            
+            //10000_clear_large@2x.png
             strNewElement += `
                 <div class="forecast">
                     <div class="icon">
                         <div class="temperature"><span class="max">${tempMax}°C</span> / <span class="min">${tempMin}°C</span></div>
-                        <img src="/icons/${weatherIcon}" alt="">
+                        <img src="./icons/${weatherIcon}" alt="">
                         <div class="condition">${weatherCondition}</div>
                         <div class="rain-chance">${chanceOfRain}%</div>
                         <div class="day">${dayValue}</div>

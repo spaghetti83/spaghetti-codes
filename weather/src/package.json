@@ -14,5 +14,6 @@
     "express": "^4.21.2",
     "nodemod": "^3.0.6",
     "nodemon": "^3.1.9"
-  }
+  },
+  "keywords": []
 }
