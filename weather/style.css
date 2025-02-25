@@ -24,15 +24,15 @@ body{
 }
 
 main{
+    position: relative;
     display: flex;
     flex-direction: row;
     margin: 10px;
     background-color: aliceblue;
-    border: dotted 2px black;
     border-radius: 24px;
     padding: 24px;
     width: fit-content;
-    transition: 1s ease-out;
+    
 }
 #container{
     display: flex;
@@ -43,7 +43,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    transition: 1s step-end;
 }
 
 #forecast-container{
@@ -151,8 +151,7 @@ img{
     
 }
 #places-list{
-    position: absolute;
-    top: 25px;
+    top: 10px;
     left: 35px;
     margin: 0px;
     padding: 0px;

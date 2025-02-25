@@ -1,6 +1,4 @@
 
-
-
 class ThemeSelector extends HTMLElement{
     constructor(){
         super()
@@ -19,7 +17,7 @@ class ThemeSelector extends HTMLElement{
             htmlPage.innerHTML = html
             
             const toggleEl = htmlPage.querySelector('#main-toggle')
-            console.log(toggleEl)
+            console.log(shadow)
             shadow.appendChild(link)
             link.addEventListener('load',()=>{ 
                 shadow.appendChild(toggleEl)
@@ -39,57 +37,35 @@ class ThemeSelector extends HTMLElement{
 }
 customElements.define('theme-selector',ThemeSelector)
 
+class WeatherApp extends HTMLElement{
+    constructor(){
+        super()
 
+        const shadow = this.attachShadow({mode: 'open'})
 
-const loadScript = () => {
-    const themeElement = document.querySelector('theme-selector')
-    
-    const shadow = themeElement.shadowRoot
-    
-    const toggleMain = shadow.querySelector('theme-selector')
-    const circle = shadow.querySelector('circle')
-    const sky = shadow.querySelector('tgl-box')
-    const stars = shadow.querySelector('star')
-    const cloud = shadow.querySelector('cloud')
-    circle.style.transition = '0.4s ease-in-out'
-    sky.style.transition = '0.4s ease-in-out'
-    toggleMain.addEventListener('touchstart' && 'click', () => {
-
-        if (circle.classList.contains('sun')) {
-            circle.classList.remove('sun')
-            circle.style.top = '150%'
-            setTimeout(() => {
-                circle.classList.add('moon')
-                circle.style.backgroundColor = '#FFFCE6'
-                circle.style.boxShadow = 'inset 0px -20px 20px 15px #D3C59B'
-                circle.style.top = '50%'
-                sky.style.boxShadow = 'inset 0px -20px 20px  rgba(1, 57, 153,0.6)'
-                sky.style.backgroundColor = '#002971'
-                for (let i = 0; i < stars.length; i++) {
-                    stars[i].style.transition = '0.8s ease-in-out'
-                    stars[i].style.backgroundColor = 'white'
-                    console.log(stars[i])
-                }
-            }, 400)
-        } else {
-            circle.style.top = '150%'
-            setTimeout(() => {
-                circle.classList.add('sun')
-                circle.style.top = '50%'
-                circle.style.backgroundColor = '#FFDF00'
-                circle.style.boxShadow = 'inset 20px 0px 15px 15px #FEC108'
-                circle.style.top = '50%'
-                sky.style.boxShadow = 'inset 0px 20px 20px 15px  rgba(1, 57, 153,0.6)'
-                sky.style.backgroundColor = '#74A7FF'
-                for (let i = 0; i < stars.length; i++) {
-                    stars[i].style.backgroundColor = 'transparent'
-                    console.log(stars[i])
-                }
-            }, 400)
-        }
-    })
+        fetch('./weather/index.html')
+        .then(response => response.text())
+        .then(html => {
+            shadow.innerHTML = html
+            const link = document.createElement('link')
+            const script = document.createElement('script')
+            link.rel = 'stylesheet'
+            link.href = './weather/style.css'
+            script.src = './weather/weather-script.js'
+            shadow.appendChild(link)
+            link.addEventListener('load',()=>{
+                console.log('script loaded')
+                
+                shadow.appendChild(script)
+                const btnFind = shadow.querySelector('button')
+                btnFind.addEventListener('mouseover',()=> btnFind.style.cursor = 'pointer')
+            })
+            
+        
+        })
+        .catch( err => console.log(err))
 
 }
-
-
+}
+customElements.define('weather-app',WeatherApp)
 

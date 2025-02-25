@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Just+Another+Hand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Just+Another+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Liter&display=swap');
 :root{
     --fst-color: #CFD3FF;
     --fst-color-mild: #dde0f6;
@@ -31,6 +32,11 @@ body{
 #theme-selector:hover{
         cursor: pointer;
     }
+
+#weather-app{
+    margin: 10px;
+    overflow: auto;
+}
 #header-declaimer-container{
         display: flex;
         justify-content: center;
@@ -45,7 +51,8 @@ body{
    margin: auto;
    display: flex;
    flex-direction: column;
-align-items: start;
+    align-items: start;
+    
 }
 #site-title{
     margin: 0px var(--left-margin);
@@ -81,19 +88,36 @@ align-items: start;
 #img-spaghetti{
    width: 250px;
 }
-
+.section{
+    margin: 0px;
+}
 .section-container{
+    margin: auto;
     background-color: var(--fst-color-mild);
     width: 100vw;
-    height: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-
+.section-title{
+    padding: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    max-width: 500px;
+}
+#weather-app-container{
+    overflow-x: auto;
+    max-width: 100vw;
+}
 @media screen and (max-width: 1200px){
     
     #declaimer{
         max-width: 300px;
     }
-    
+    .section-title{
+        max-width: 300px;
+    }
 }
 
 @media screen and (max-width: 600px){
@@ -101,7 +125,12 @@ align-items: start;
     #declaimer{
         max-width: 300px;
     }
-    
+    .section-container{
+       
+    }
+    .section-title{
+        max-width: 300px;
+    }
 }
 
 
@@ -117,6 +146,19 @@ align-items: start;
         right: 30px;
         z-index: 0;
         opacity: 0.8;
+    }
+    .section-container{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .section-title{
+       
+    }
+    #weather-app-container{
+        overflow-x: scroll;
+        max-width: 100vw;
+       
     }
     
 }

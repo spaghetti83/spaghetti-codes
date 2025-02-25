@@ -1,18 +1,25 @@
-const settingContainer = document.getElementById("setting-container");
-const locations = document.getElementById("location");
-const locationsList = document.getElementById('places-list')
-const comunication = document.getElementById("comunication");
-const note = document.getElementById("note");
-const update = document.getElementById("update");
-const findLocation = document.getElementById('find-location')
-const temperature = document.getElementById("temperature");
-const extra = document.getElementById("extra");
-const alertIcon = document.getElementById("alert-icon");
-const alert = document.getElementById("alert");
-const forecastContainer = document.getElementById('forecast-container')
-const forecastDays = document.getElementById('forecast-days')
-const selectAlertStatus = document.getElementById('alert-status')
-const statusIcon = document.getElementById('status-icon')
+
+
+const weatherElement = document.querySelector('weather-app')
+const shadow = weatherElement.shadowRoot
+console.log('SHADOW FROM FETCH',shadow)
+
+
+const settingContainer = shadow.getElementById("setting-container");
+const locations = shadow.getElementById("location");
+const locationsList = shadow.getElementById('places-list')
+const comunication = shadow.getElementById("comunication");
+const note = shadow.getElementById("note");
+const update = shadow.getElementById("update");
+const findLocation = shadow.getElementById('find-location')
+const temperature = shadow.getElementById("temperature");
+const extra = shadow.getElementById("extra");
+const alertIcon = shadow.getElementById("alert-icon");
+const alert = shadow.getElementById("alert");
+const forecastContainer = shadow.getElementById('forecast-container')
+const forecastDays = shadow.getElementById('forecast-days')
+const selectAlertStatus = shadow.getElementById('alert-status')
+const statusIcon = shadow.getElementById('status-icon')
 let geometry = ''
 let locationHint = []
 let lat,lng;
@@ -34,7 +41,6 @@ findLocation.addEventListener('click', ()=>{
         },0)
             locationsList.innerHTML = ''
             for (let i = 0; i < locationHint.length; i++) {
-                locationsList.style.display = 'block'
                 console.log(data.results[0].geometry.location.lat,"-",data.results[0].geometry.location.lng)
                 lat = data.results[0].geometry.location.lat
                 lng = data.results[0].geometry.location.lng
@@ -43,7 +49,6 @@ findLocation.addEventListener('click', ()=>{
                 li.innerHTML = locationHint[i]
                 locationsList.append(li)
                 getWeather()
-                //locationWeather = data.results[0].geometry.location
                 console.log('hint',locationHint[i])
             }
             
@@ -351,12 +356,11 @@ const pathIcons = '/icons/'
                 weatherIcon = weatherIcons[weatherCode + '0']
             }
             
-            //10000_clear_large@2x.png
             strNewElement += `
                 <div class="forecast">
                     <div class="icon">
                         <div class="temperature"><span class="max">${tempMax}°C</span> / <span class="min">${tempMin}°C</span></div>
-                        <img src="./icons/${weatherIcon}" alt="">
+                        <img src="./weather/icons/${weatherIcon}" alt="">
                         <div class="condition">${weatherCondition}</div>
                         <div class="rain-chance">${chanceOfRain}%</div>
                         <div class="day">${dayValue}</div>
