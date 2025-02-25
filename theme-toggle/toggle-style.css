@@ -1,12 +1,12 @@
 :root{
-    --container-size-w: 300px;
-    --container-size-h: 150px;
+    --container-size-w: 50px;
+    --container-size-h: 50px;
    
 }
-
 #tgl-box{
     position: relative;
-    width: 250px;
+    height: 145px;
+    width: 250px; 
     height: 145px;
     border-radius: 100px 100px;
     background-color: #74A7FF;
@@ -19,7 +19,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 120px;
+    width: 120px; 
     height: 120px;
     border-radius: 100px;
     background-color: #FFDF00;
