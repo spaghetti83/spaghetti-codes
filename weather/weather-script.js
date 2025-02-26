@@ -6,6 +6,7 @@ console.log('SHADOW FROM FETCH',shadow)
 
 
 const settingContainer = shadow.getElementById("setting-container");
+const labelLocation = shadow.getElementById('label-location')
 const locations = shadow.getElementById("location");
 const locationsList = shadow.getElementById('places-list')
 const comunication = shadow.getElementById("comunication");
@@ -41,16 +42,27 @@ findLocation.addEventListener('click', ()=>{
         },0)
             locationsList.innerHTML = ''
             for (let i = 0; i < locationHint.length; i++) {
-                console.log(data.results[0].geometry.location.lat,"-",data.results[0].geometry.location.lng)
-                lat = data.results[0].geometry.location.lat
-                lng = data.results[0].geometry.location.lng
+                console.log(data.results[i].geometry.location.lat,"-",data.results[i].geometry.location.lng)
                 const li = document.createElement('li')
                 li.classList = 'location-element'
                 li.innerHTML = locationHint[i]
                 locationsList.append(li)
-                getWeather()
+                li.addEventListener('mouseover',()=> li.style.cursor = 'pointer')
                 console.log('hint',locationHint[i])
             }
+            const liElements = shadow.querySelectorAll('.location-element')
+            console.log('LI ELEMENT', liElements)
+            liElements.forEach( (e,i) => {
+                e.addEventListener('click',()=>{
+                    lat = data.results[i].geometry.location.lat
+                    lng = data.results[i].geometry.location.lng
+                    labelLocation.innerText = e.innerText
+                    getWeather()
+                    liElements.forEach(e=> e.remove())
+                })
+                
+
+            })
             
         })
         .catch(err => {console.log(err)})
@@ -327,7 +339,7 @@ if (timeOfTheDay > 6 && timeOfTheDay < 18){
 console.log(today)
 const pathIcons = '/icons/'
 
-    const getWeather = () =>{
+    const getWeather = (labelLocation) =>{
     fetch('http://127.0.0.1:3100/forecast',{
         method: 'POST',
         headers: { 'Content-Type' : 'application/json'},
@@ -369,6 +381,7 @@ const pathIcons = '/icons/'
             `
             console.log(chanceOfRain,tempMax, tempMin, weatherCondition)
         }
+        forecastContainer.innerHTML = ''
         forecastContainer.innerHTML = strNewElement
        
     })

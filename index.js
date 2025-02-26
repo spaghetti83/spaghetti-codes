@@ -1,4 +1,3 @@
-
 class ThemeSelector extends HTMLElement{
     constructor(){
         super()
@@ -69,3 +68,13 @@ class WeatherApp extends HTMLElement{
 }
 customElements.define('weather-app',WeatherApp)
 
+class ReviewElement extends HTMLElement{
+    constructor(){
+        super()
+
+        const shadow = this.shadowRoot({mode: 'open'})
+        
+
+
+    }
+}
