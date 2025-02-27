@@ -52,6 +52,10 @@ class WeatherApp extends HTMLElement{
             link.href = './weather/style.css'
             script.src = './weather/weather-script.js'
             shadow.appendChild(link)
+            shadow.appendChild(script)
+            script.addEventListener('load',()=>{
+                loadWeatherApp()
+            })
             link.addEventListener('load',()=>{
                 console.log('script loaded')
                 
@@ -72,9 +76,20 @@ class ReviewElement extends HTMLElement{
     constructor(){
         super()
 
-        const shadow = this.shadowRoot({mode: 'open'})
+        const shadow = this.attachShadow({mode: 'open'})
         
+        fetch('./review/index.html')
+        .then(response => response.text())
+        .then(html => {
+            shadow.innerHTML = html
+            const script = document.createElement('script')
+            script.src = './review/review-script.js'
+            script.addEventListener('load',()=> loadReviewElement())
+            shadow.appendChild(script)
+        })
+        .catch(err => console.log(err))
 
 
     }
 }
+customElements.define('reviews-element',ReviewElement)

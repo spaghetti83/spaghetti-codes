@@ -1,4 +1,4 @@
-
+const loadWeatherApp = ()=>{ 
 
 const weatherElement = document.querySelector('weather-app')
 const shadow = weatherElement.shadowRoot
@@ -390,3 +390,4 @@ const pathIcons = '/icons/'
 }
 
 
+}
