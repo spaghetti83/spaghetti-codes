@@ -26,6 +26,8 @@ let locationHint = []
 let lat,lng;
 findLocation.addEventListener('click', ()=>{findLocationFun()})
 findLocation.addEventListener('touchstart', ()=>{findLocationFun()})
+
+
 const findLocationFun = ()=>{
     console.log('FETCH ATTEMPT TO THE SERVER FOR:  LOCATION')
     const searchLocation = locations.value
@@ -36,7 +38,12 @@ const findLocationFun = ()=>{
             headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify({location : searchLocation})
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Errore HTTP! Status: ${response.status}`);
+            }
+            return response.json(); 
+        })
         .then(data => {
             geometry = data.results[0].geometry.location
             locationHint = data.results.map(e => {
