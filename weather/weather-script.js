@@ -24,8 +24,8 @@ const statusIcon = shadow.getElementById('status-icon')
 let geometry = ''
 let locationHint = []
 let lat,lng;
-findLocation.addEventListener('click', ()=>{findLocationFun})
-findLocation.addEventListener('touchstart', ()=>{findLocationFun})
+findLocation.addEventListener('click', ()=>{findLocationFun()})
+findLocation.addEventListener('touchstart', ()=>{findLocationFun()})
 const findLocationFun = ()=>{
     const searchLocation = locations.value
     
