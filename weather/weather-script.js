@@ -33,7 +33,7 @@ const findLocationFun = ()=>{
     const searchLocation = locations.value
     
     if(searchLocation.length > 2){
-        fetch('/location',{
+        fetch('/spaghetti-codes/location',{
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify({location : searchLocation})
@@ -349,7 +349,7 @@ console.log(today)
 const pathIcons = '/icons/'
 
     const getWeather = (labelLocation) =>{
-    fetch('/forecast',{
+    fetch('/spaghetti-codes/forecast',{
         method: 'POST',
         headers: { 'Content-Type' : 'application/json'},
         body: JSON.stringify({ 'lat': lat, 'lng': lng})
