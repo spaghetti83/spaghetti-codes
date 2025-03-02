@@ -27,6 +27,7 @@ let lat,lng;
 findLocation.addEventListener('click', ()=>{findLocationFun()})
 findLocation.addEventListener('touchstart', ()=>{findLocationFun()})
 const findLocationFun = ()=>{
+    console.log('FETCH ATTEMPT TO THE SERVER FOR:  LOCATION')
     const searchLocation = locations.value
     
     if(searchLocation.length > 2){
