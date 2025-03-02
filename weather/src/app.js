@@ -8,8 +8,7 @@ app.use(cors())
 app.use(express.json())
 const apikey = process.env.API_KEY
 const geoApiKey = process.env.GEO_API_KEY
-console.log('APIKEY',apikey)
-console.log('APIKEY',geoApiKey)
+
 
 app.post('/location', (req,res)=>{
     const location = req.body.location
@@ -21,6 +20,9 @@ app.post('/location', (req,res)=>{
     fetch(url, options)
     .then(res => res.json())
     .then(data => {
+        if(req.body){
+            console.log('LOCATION REQUEST: ',req.body)
+        }
         if(data.status === 'OK'){
             res.send(data)
         }else{
@@ -34,7 +36,7 @@ app.post('/location', (req,res)=>{
 app.post('/forecast', (req,res)=>{
     const lat = req.body.lat
     const lng = req.body.lng
-    console.log('body got',req.body )
+    console.log('WEATHER REQUEST',req.body )
     const url = `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lng}&apikey=${apikey}`;
     const options = {
         method: 'GET',
@@ -43,7 +45,11 @@ app.post('/forecast', (req,res)=>{
 
     fetch(url, options)
         .then(res => res.json())
-        .then(json => res.send(json))
+        .then(json => {
+            console.log('RES FROM WEATHER API: ', res.body)
+            res.send(json)
+        
+        })
         .catch(err => console.error(err));
 })
 
