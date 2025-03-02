@@ -33,7 +33,7 @@ const findLocationFun = ()=>{
     const searchLocation = locations.value
     
     if(searchLocation.length > 2){
-        fetch('https://85.235.144.126:3100/location',{
+        fetch('http://85.235.144.126:3100/location',{
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify({location : searchLocation})
