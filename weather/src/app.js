@@ -11,6 +11,7 @@ const geoApiKey = process.env.GEO_API_KEY
 
 
 app.post('https://85.235.144.126:3100/location', (req,res)=>{
+    console.log('GOT REQUEST TO ENDPOINT: LOCATION',req.body)
     const location = req.body.location
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${geoApiKey}`;
     const options = {
@@ -34,6 +35,7 @@ app.post('https://85.235.144.126:3100/location', (req,res)=>{
 
 
 app.post('https://85.235.144.126:3100/forecast', (req,res)=>{
+    console.log('GOT REQUEST TO ENDPOINT: FORECAST',req.body)
     const lat = req.body.lat
     const lng = req.body.lng
     console.log('WEATHER REQUEST',req.body )
