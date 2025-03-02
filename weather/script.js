@@ -20,7 +20,8 @@ findLocation.addEventListener('click', (event)=>{
     const searchLocation = locations.value
     
     if(searchLocation.length > 2){
-        fetch('http://127.0.0.1:3100/location',{
+        fetch('https://85.235.144.126:3100/location',{
+        //fetch('http://127.0.0.1:3100/location',{
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify({location : searchLocation})
@@ -323,7 +324,8 @@ console.log(today)
 const pathIcons = '/icons/'
 
     const getWeather = () =>{
-    fetch('http://127.0.0.1:3100/forecast',{
+        fetch('https://85.235.144.126:3100/forecast',{
+        //fetch('http://127.0.0.1:3100/forecast',{
         method: 'POST',
         headers: { 'Content-Type' : 'application/json'},
         body: JSON.stringify({ 'lat': lat, 'lng': lng})
