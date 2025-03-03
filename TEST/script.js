@@ -22,7 +22,7 @@ async function testEndpoints() {
         body: JSON.stringify({ data: 'Test interno' }),
       });
   
-      const internalData = await internalResponse.json();
+      const internalData = await internalResponse.json(); 
       console.log('Risposta dall\'endpoint interno:', internalData);
     } catch (error) {
       console.error('Errore durante il test degli endpoint:', error);
