@@ -1,4 +1,5 @@
 async function testEndpoints() {
+  console.log('test Endpoints avviato...')
     try {
       // Richiesta all'endpoint principale
       const mainResponse = await fetch('http://localhost:3100/mainEndpoint', {
