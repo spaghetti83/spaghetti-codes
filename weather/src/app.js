@@ -9,6 +9,13 @@ app.use(express.json())
 const apikey = process.env.API_KEY
 const geoApiKey = process.env.GEO_API_KEY
 
+app.get('/test', (req,res)=>{
+    if (req.body){
+        console.log('RICHIESTA RICEVUTA', req.body)
+    }
+    res.send({message: "questa e'la risposta"})
+})
+
 
 app.post('/location', (req,res)=>{
     console.log('GOT REQUEST TO ENDPOINT: LOCATION',req.body)
