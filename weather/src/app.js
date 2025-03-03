@@ -9,6 +9,11 @@ app.use(express.json())
 const apikey = process.env.API_KEY
 const geoApiKey = process.env.GEO_API_KEY
 
+app.listen(port, '0.0.0.0', ()=>{
+    console.log('server in ascolto su porta: ',port)
+} )
+
+
 app.get('/spaghetti-codes/test', (req,res)=>{
     if (req.body){
         console.log('RICHIESTA RICEVUTA', req.body)
@@ -63,6 +68,4 @@ app.post('/forecast', (req,res)=>{
 })
 
 
-app.listen(port, '0.0.0.0', ()=>{
-    console.log('server in ascolto su porta: ',port)
-} )
+
