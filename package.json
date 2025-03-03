@@ -1,0 +1,23 @@
+{
+  "name": "spaghetti-codes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spaghetti83/spaghetti-codes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spaghetti83/spaghetti-codes/issues"
+  },
+  "homepage": "https://github.com/spaghetti83/spaghetti-codes#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
