@@ -2,7 +2,7 @@ async function testEndpoints() {
   console.log('test Endpoints avviato...')
     try {
       // Richiesta all'endpoint principale
-      const mainResponse = await fetch('http://localhost:3100/mainEndpoint', {
+      const mainResponse = await fetch('/mainEndpoint', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ async function testEndpoints() {
       console.log('Risposta dall\'endpoint principale:', mainData);
   
       // Richiesta all'endpoint interno
-      const internalResponse = await fetch('http://localhost:3100/mainEndpoint/internalEndpoint', {
+      const internalResponse = await fetch('/mainEndpoint/internalEndpoint', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
