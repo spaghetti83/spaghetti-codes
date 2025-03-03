@@ -13,6 +13,10 @@ app.listen(port, '0.0.0.0', ()=>{
     console.log('server in ascolto su porta: ',port)
 } )
 
+setInterval(()=>{
+    timerFun()
+}, 5000)
+const timerFun = ()=>{console.log('STILL RUNNING')}
 
 app.get('/spaghetti-codes/test', (req,res)=>{
     if (req.body){
