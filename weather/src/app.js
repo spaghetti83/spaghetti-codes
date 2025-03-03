@@ -63,6 +63,6 @@ app.post('/forecast', (req,res)=>{
 })
 
 
-app.listen(port, ()=>{
+app.listen(port, '0.0.0.0', ()=>{
     console.log('server in ascolto')
 } )
