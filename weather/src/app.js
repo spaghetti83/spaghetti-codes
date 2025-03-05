@@ -26,7 +26,7 @@ app.get('/spaghetti-codes/test', (req,res)=>{
 })
 
 
-app.post('/location', (req,res)=>{
+app.post('/route/location', (req,res)=>{
     console.log('GOT REQUEST TO ENDPOINT: LOCATION',req.body)
     const location = req.body.location
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${geoApiKey}`;
@@ -50,7 +50,7 @@ app.post('/location', (req,res)=>{
 })
 
 
-app.post('/forecast', (req,res)=>{
+app.post('/route/forecast', (req,res)=>{
     console.log('GOT REQUEST TO ENDPOINT: FORECAST',req.body)
     const lat = req.body.lat
     const lng = req.body.lng
