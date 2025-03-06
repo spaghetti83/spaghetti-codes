@@ -4,7 +4,15 @@ const cors = require('cors')
 const app  = express()
 const port  = 3100
 
-app.use(cors())
+//app.use(cors())
+const corsOptions = {
+    origin: 'http://spaghetticodes.com', // Specifica il dominio consentito
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Specifica i metodi consentiti
+    credentials: true, // Consenti le credenziali (cookie, intestazioni di autorizzazione)
+    optionsSuccessStatus: 204, // alcuni browser legacy (IE11, alcuni smart TV) si bloccano su 204
+  };
+app.use(cors(corsOptions));
+
 app.use(express.json())
 const apikey = process.env.API_KEY
 const geoApiKey = process.env.GEO_API_KEY
@@ -18,7 +26,7 @@ setInterval(()=>{
 }, 5000)
 const timerFun = ()=>{console.log('STILL RUNNING')}
 
-app.get('/spaghetti-codes/test', (req,res)=>{
+app.get('/route/test', (req,res)=>{
     if (req.body){
         console.log('RICHIESTA RICEVUTA', req.body)
     }
