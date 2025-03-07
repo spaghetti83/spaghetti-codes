@@ -4,14 +4,16 @@ const cors = require('cors')
 const app  = express()
 const port  = 3100
 
-//app.use(cors())
+/* //app.use(cors())
 const corsOptions = {
     origin: 'https://spaghetticodes.com', // Specifica il dominio consentito
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Specifica i metodi consentiti
     credentials: true, // Consenti le credenziali (cookie, intestazioni di autorizzazione)
     optionsSuccessStatus: 204, // alcuni browser legacy (IE11, alcuni smart TV) si bloccano su 204
   };
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); */
+
+
 
 app.use(express.json())
 const apikey = process.env.API_KEY
@@ -25,6 +27,13 @@ setInterval(()=>{
     timerFun()
 }, 5000)
 const timerFun = ()=>{console.log('STILL RUNNING')}
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+    });
 
 app.get('/route/test', (req,res)=>{
     if (req.body){
