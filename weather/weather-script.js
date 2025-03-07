@@ -33,7 +33,7 @@ const findLocationFun = ()=>{
     const searchLocation = locations.value
     
     if(searchLocation.length > 2){
-        fetch('http://85.235.144.126:3100/route/location',{
+        fetch('https://85.235.144.126:3100/route/location',{
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
             body: JSON.stringify({location : searchLocation})
@@ -349,7 +349,7 @@ console.log(today)
 const pathIcons = '/icons/'
 
     const getWeather = (labelLocation) =>{
-    fetch('http://85.235.144.126:3100/route/forecast',{
+    fetch('https://85.235.144.126:3100/route/forecast',{
         method: 'POST',
         headers: { 'Content-Type' : 'application/json'},
         body: JSON.stringify({ 'lat': lat, 'lng': lng})
